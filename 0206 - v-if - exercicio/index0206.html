@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="./vue.js"> </script>
+  
+  <title>v-on</title>
+ </head>
+
+<style>
+  
+</style>
+
+<body>
+  <div id="app">   
+   <p>Cerveja R$ {{preco}}</p>
+   <p>Quantidade no carrinho: {{contador}}</p>
+   <p>Estoque: {{estoque}}</p>
+   
+<template v-if="contador < 7">
+  <button v-show="contador > 0" @click="removerItem">Remover</button>
+   <button  @click="adicionarItem">Adicionar ao carrinho</button>
+</template>
+
+
+<template v-else="contador === 7">
+  <p>Você adicionou todos os itens disponíveis em estoque.</p>
+  <button @click="contador--">Remover</button>
+</template>
+
+   <p>Total: R$ {{preco * contador}}</p>
+   <button class="desconto" @click.prevent.once="preco *= 0.9">Adicionar cupom de desconto</button> 
+  </div>
+
+
+  <script>
+    const vm = new Vue ({
+      el: "#app",
+      data: {
+        contador: 0,
+        preco: 3,
+        total: 0,
+        estoque: 7,
+      },
+      methods: {
+        adicionarItem() {
+          this.contador++
+          this.estoque--
+
+        },
+        removerItem() {
+          this.contador--
+          this.estoque++
+        },
+       
+
+      }
+      
+    })
+  </script>
+
+
+</body>
+</html>

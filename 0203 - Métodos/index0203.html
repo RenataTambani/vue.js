@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="./vue.js"> </script>
+  <title>Vue.js - Template e Diretivas</title>
+ </head>
+
+
+<body>
+  <div id="app">
+    {{total}}
+    <button @click="incrementar">Adicionar</button>
+<button @click="diminuir">Diminuir</button>
+    <p>{{instrumento}}</p>
+
+<button @click="mudarCompra('Guitarra')">Guitarra</button>
+<button @click="mudarCompra('Violão')">Violão</button>
+<button @click="verEvento">Evento</button>
+<p>Bermuda R$ <span> {{preco}}</span></p>
+<button @click="adicionarCupom">Adicionar cupom</button>
+<p>{{alerta}}</p>
+  </div>
+  <script>
+   const vm = new Vue({
+     el: "#app",
+     data: {
+       total: 0,
+       instrumento: "",
+       preco: 149,
+       alerta: ""
+       },
+      methods: {
+        incrementar() {
+          this.total++
+        } ,
+        diminuir () {
+          this.total--
+        },
+        mudarCompra(instrumento) {
+          this.instrumento = instrumento;
+        },
+        verEvento(event) {
+          console.log(event)
+        },
+        adicionarCupom() {
+          this.preco *= 0.9;
+          this.alertaCupom();
+        },
+        alertaCupom() {
+          this.alerta = "Cupom adicionado"
+        }
+      }
+  })
+  </script>
+
+
+</body>
+</html>

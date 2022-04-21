@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="./vue.js"> </script>
+  
+  <title>computed e watch ASSINCRONO 1</title>
+ </head>
+
+<style>
+  
+</style>
+
+<body>
+  <div id="app">  
+     <!-- <h1>Nome completo: {{nomeCompleto}}</h1> -->
+    
+     <button @click="puxarPaises">Selecionar país</button>
+     <select nome="paises" id="paises" v-model="paisSelecionado">
+       <option v-for="pais in paises" :value="pais.name">
+         {{pais.name}}
+       </option>
+     </select>
+     <p>{{capital.capital}}</p>
+  </div>
+
+
+  <script>
+    const vm = new Vue ({
+      el: "#app",
+      data: {
+          nome: "Renata",
+          sobrenome: "Tambani",
+          paisSelecionado: "",
+          capital: "",
+          paises: {},
+      },
+    //  computed: {
+    //    nomeCompleto() {
+    //      return (this.nome + " " + this.sobrenome);
+    //   },      
+    //  },
+     methods: {
+       puxarPaises() {
+         fetch("https://restcountries.com/v2/all")
+         .then (r => r.json())
+         .then(r => {
+           this.paises = r
+         })
+       },
+       watch: {
+         paisSelecionado(valor) {
+           this.capital = this.paises.find((pais) => pais.name === valor)
+         },
+       }
+     }   
+       
+    });
+  </script>
+
+
+</body>
+</html>

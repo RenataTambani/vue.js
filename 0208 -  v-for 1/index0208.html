@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="./vue.js"> </script>
+  
+  <title>v-for</title>
+ </head>
+
+<style>
+  
+</style>
+
+<body>
+  <div id="app">  
+    <!--v-for para arrays e listas 
+      <ul>
+        <li v-for="curso in cursos">{{curso}}</li>
+        <li v-for="(curso, index in cursos)">{{curso}} {{index}}</li>
+      </ul>  -->
+
+    <!--v-for para objetos-->
+      <ul>
+        <!-- <li v-for="estado in estados" :key="key + nome">{{estado}}</li>
+        <li v-for="(valor, key) in estados">{{valor.nome}}, {{valor.populacao}}</li> -->
+        <li v-for="item in lista">{{item}}</li>
+      </ul>
+      <button @click="removerItem">Remover</button>
+    <!--  <button @click="adiocionarItem">Adicionar</button>-->
+
+  </div>
+
+
+  <script>
+    const vm = new Vue ({
+      el: "#app",
+      data: {
+        // cursos: ["HTML", "CSS", "JavaScript", "PHP", "WordPress"],
+        // estados: {
+        //   sp: {
+        //     populacao: "45 milhões",
+        //     nome: "São Paulo"
+        //   },
+        //   mg: {
+        //     populacao: "21 milhões",
+        //     nome: "Minas Gerais"
+        //   },
+        //   rj: {
+        //     populacao: "17 milhões",
+        //     nome: "Rio de Janeiro"
+        //   },
+        // },
+        lista: ["Item 1", "Item 2", "Item 3"]
+      },
+      methods: {
+       removerItem() {
+          this.lista.pop();
+       },
+          // adicionarItem() {
+          //   this.lista.push("Item 4");
+          // }
+      }
+      //}
+    })
+  </script>
+
+
+</body>
+</html>

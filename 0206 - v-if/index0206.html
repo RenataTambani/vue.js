@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="./vue.js"> </script>
+  
+  <title>v-on</title>
+ </head>
+
+<style>
+  .verde {
+    color: green;
+  }
+  .vermelho {
+    color: red;
+  }
+</style>
+
+<body>
+  <div id="app">   
+    <template v-if="logado"> 
+      <p>Usuário está logado</p>
+      <button @click="logado = false">Sair</button>
+    </template>
+    <template v-else>
+      <p>Usuário deslogado. Clique para logar.</p>
+      <button @click="logado = true">Login</button>
+    </template>
+    <p v-show="logado">Teste v-show</p>
+  <!-- <p v-if="logado">Você está logado</p>
+   <p v-else>Você não está logado. <a href="#">Clique aqui</a> para fazer login</p>
+  <p :class="logado ? 'vermelho ': 'verde'">Você está logado.</p>-->
+  </div>
+
+
+  <script>
+    const vm = new Vue ({
+      el: "#app",
+      data: {
+        logado: false
+      }
+
+    })
+  </script>
+
+
+</body>
+</html>

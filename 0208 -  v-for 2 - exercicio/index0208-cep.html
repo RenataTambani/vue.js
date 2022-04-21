@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="./vue.js"> </script>
+  
+  <title>v-for exercicio</title>
+ </head>
+
+<style>
+  
+</style>
+
+<body>
+  <div id="app">  
+    <button @click="puxarCep">Puxar CEP:</button>
+    <!--<div>{{local}}</div>-->
+    <ul>
+      <li v-for="dados, key in local">{{key}}: {{dados}}</li>
+    </ul>
+   
+  </div>
+
+  <script>
+    const vm = new Vue ({
+      el: "#app",
+      data: {
+        local: {
+
+        }
+               
+      },
+      methods: {
+        puxarCep() {
+          fetch("https://viacep.com.br/ws/04538133/json")
+          .then(r => r.json())
+          .then (r => {
+            this.local = r;
+
+          })
+        }
+      }     
+    })
+  </script>
+
+
+</body>
+</html>

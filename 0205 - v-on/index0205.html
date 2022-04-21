@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="./vue.js"> </script>
+  
+  <title>v-on</title>
+ </head>
+
+<style>
+  .verde {
+    color: green;
+  }
+  .vermelho {
+    color: red;
+  }
+</style>
+
+<body>
+  <div id="app">    
+    <div>
+      <button v-on:click="handleClick">Clique</button>
+      <!-- v-on pode ser substituido por @-->
+    </div>
+    <div>  
+      {{contador}}
+      <p>Camisa R$ {{preco}}</p>
+      <button @click.prevent.once="preco *= 0.9">Adicionar cupom de desconto</button>
+    </div>
+    <div>  
+       <p :class="ativo ? 'verde' : 'vermelho'">Texto  teste Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+       <p v-if="ativo">Mostrar texto</p>  
+       <button @click="ativo = !ativo">Ativar / toggle</button><!--mesmo efeito do toggle-->
+    </div>
+     <a href="#interno" @click.prevent.once="handleClick">Link interno - click</a>
+     <input type="text" @keyup="handleClick">
+     <p @mousemove="handleMove">Esse é o mouse x: {{mouse.x}}</p>
+  </div>
+
+
+  <script>
+    const vm = new Vue ({
+      el: "#app",
+      data: {
+        ativo: true,
+        preco: 25,
+        contador: 0,
+        mouse: ""
+
+      },
+      methods: {
+        handleClick(event) {
+          console.log(event.key)
+        },
+        handleMove(event) {
+          this.mouse = event
+        }
+      }
+    })
+  </script>
+
+
+</body>
+</html>
