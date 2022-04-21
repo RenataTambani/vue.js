@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="./vue.js"> </script>
+  
+  <title>v-model</title>
+ </head>
+
+
+<body>
+  <div id="app">  
+    <!-- formulario criador de botoes -->
+    <label for="background">Background:</label>
+    <input id="background" type="color" v-model="estiloBotao.background">
+    <br>
+    <label for="width">Width:</label>
+    <input id="width" type="text" v-model="estiloBotao.width"/>
+    <br>
+    <label for="height">Height:</label>
+    <input id="height" type="text" v-model="estiloBotao.height"/>
+    <br>
+    <label for="fontSize">Font-size:</label>
+    <input id="fontSize" type="text" v-model="estiloBotao.fontSize"/>
+    <br>
+
+    
+    <p>Text-align:</p>
+    <input id="start" value="start" type="radio" v-model="estiloBotao.textAlign"/> 
+    <label for="start">Start</label>
+    <input id="center" value="center" type="radio" v-model="estiloBotao.textAlign"/> 
+    <label for="center">Center</label>
+    <input id="end" value="end" type="radio" v-model="estiloBotao.textAlign"/> 
+    <label for="center">End</label>
+    <br>
+    <label for="color">Color:</label>
+    <input id="color" type="color" v-model="estiloBotao.color">
+    <br>
+
+    <label for="borderRadius">Border-radius:</label>
+    <input type="range" min="1" max="100" value="50" class="slider" id="borderRadius" v-model="estiloBotao.borderRadius">
+    <br> 
+
+
+    <button :style="estiloBotao">Botão</button>
+  </div>
+
+  <script>
+    const vm = new Vue ({
+      el: "#app",
+      data: {
+        estiloBotao: {
+          background: "",
+          width: "200px",
+          height: "50px",
+          fontSize: "30px",
+          textAlign: "center",
+          color: "",
+          borderRadius: "5px",
+        }
+             
+      },
+      
+      
+      
+    })
+  </script>
+
+
+<style>
+  label, input {
+    display: block;
+    margin: 5px;
+  }
+  
+</style>
+</body>
+</html>

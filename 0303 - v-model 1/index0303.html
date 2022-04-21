@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="./vue.js"> </script>
+  
+  <title>v-model</title>
+ </head>
+
+
+<body>
+  <div id="app">  
+
+    <div>
+      <input v-model.lazy="nome" placeholder="Seu nome" /> <br>
+      <input v-model.trim="email" :value="email" placeholder="Seu email" /> <br>
+      <input v-model="telefone" placeholder="Seu telefone" /> <br>
+      <textarea v-model="mensagem" cols="30" rows="10" placeholder="Sua mensagem" ></textarea> <br>
+      <input v-model.number="ano" placeholder="ano">
+    </div>
+
+<!-- checkbox -->
+    <div>
+      <input type="checkbox" id="receberEmail" v-model="receberEmail"/>
+      <label for="receberEmail"> Receber email</label><br>
+       <input type="checkbox" v-model="termos"/> Aceitar termos e condições<br>
+    </div>
+
+<!-- radio -->
+     <div>
+       <input type="radio" v-model="cor" value="Azul" id="azul">
+       <label for="azul">Azul</label></br>
+       <input type="radio" v-model="cor" value="Vermelho" id="vermelho">
+       <label for="azul">Vermelho</label></br>
+     </div>
+
+<!-- select -->     
+    <p>Fruta:</p>
+    <select v-model="fruta">
+      <option disabled value="">Selecione uma fruta</option>
+      <option value="banana">Banana</option>
+      <option value="morango">Morango</option>
+      <option value="uva">Uva</option>
+    </select>
+
+
+
+
+    <p>nome: {{nome}}</p>
+    <p>email: {{email}}</p>
+ 
+    
+   
+
+  </div>
+
+  <script>
+    const vm = new Vue ({
+      el: "#app",
+      data: {
+        nome: "",
+        mensagem: "",
+        email: "",
+        telefone: "",
+        receberEmail: true,
+        termos: false,
+        cor: "",
+        fruta: "",
+        ano: 0,
+        
+      },
+      
+      
+    })
+  </script>
+
+
+<style>
+  
+  
+</style>
+</body>
+</html>
