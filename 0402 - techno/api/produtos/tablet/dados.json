@@ -2,10 +2,10 @@
   "id": "tablet",
   "nome": "Tablet",
   "preco": 899,
-  "descricao": "Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se a necessidade de renovação processual causa impacto indireto na reavaliação do orçamento setorial.",
+  "descricao": "Um tablet é um dispositivo pessoal em formato de prancheta que pode ser usado para acesso à Internet, organização pessoal, visualização de fotos, vídeos, leitura de livros, jornais e revistas, para entretenimento com jogos e interação com pessoas distantes usando o Skype e o Hangouts. ",
   "estoque": 2,
   "img": "./api/produtos/tablet/tablet-foto.jpg",
-  "reviews": [
+  "avaliacoes": [
     {
       "nome": "Rogério",
       "estrelas": 5,

@@ -2,10 +2,10 @@
   "id": "smartwatch",
   "nome": "Smartwatch",
   "preco": 1199,
-  "descricao": "Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se a necessidade de renovação processual causa impacto indireto na reavaliação do orçamento setorial.",
+  "descricao": "Um relógio inteligente é um relógio de pulso computadorizado com funcionalidades que vão além de mostrar as horas, e é com frequência comparado aos assistentes digitais pessoais (PDA). Enquanto os primeiro modelos podem executar tarefas simples, como cálculos, tradução e jogar videojogos, os relógios inteligentes modernos são efetivamente computadores vestíveis.",
   "estoque": 5,
   "img": "./api/produtos/smartwatch/smartwatch-foto.jpg",
-  "reviews": [
+  "avaliacoes": [
     {
       "nome": "Rogério",
       "estrelas": 5,

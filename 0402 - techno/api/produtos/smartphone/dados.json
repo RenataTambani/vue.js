@@ -2,10 +2,10 @@
   "id": "smartphone",
   "nome": "Smartphone",
   "preco": 1299,
-  "descricao": "Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se a necessidade de renovação processual causa impacto indireto na reavaliação do orçamento setorial.",
+  "descricao": " smartphone (palavra inglesa que significa telefone inteligente, é um celular que combina recursos de computadores pessoais, com funcionalidades avançadas que podem ser estendidas por meio de programas aplicativos executados pelo seu sistema operacional (SO - sistema operativo, ou OS – operating system), chamados simplesmente aplicações.",
   "estoque": 3,
   "img": "./api/produtos/smartphone/smartphone-foto.jpg",
-  "reviews": [
+  "avaliacoes": [
     {
       "nome": "Rogério",
       "estrelas": 5,
