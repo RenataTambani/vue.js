@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./vue.js"></script>
+  <title>Props</title>
+</head>
+
+<body>
+  
+
+<div id="app">
+
+  <blog-post
+    :titulo="blog.titulo"
+    :texto="blog.texto"
+    :likes="blog.likes"
+  ></blog-post>
+
+    <lista-produtos :frutas="lista" titulo="Esse é o titulo"></lista-produtos>
+ </div>
+
+  
+  <script type="module">
+
+    const BlogPost = {
+      name: "BlogPost",
+      props: ["titulo", "texto", "likes"],
+      template: `
+      <article>
+        <h1>{{titulo}}</h1>
+        <p>{{texto}}</p>
+        <span>{{likes}}</span>
+      </article>
+      `
+    }
+
+
+    const ItemProduto = {
+      name: "ItemProduto",
+      props: ["nomeFruta"],
+      template: `<li>
+      <h2>{{nomeFruta}}</h2>
+      Esse é o nome: {{nomeFruta}}</li>`
+    }
+
+    const ListaProdutos = {
+      name: "ListaProdutos",
+      props: ["frutas", "titulo"],
+      components: {
+        ItemProduto
+      },
+      template: `
+      <ul>
+        <h1>{{titulo}}</h1>
+        <item-produto 
+          v-for="fruta, index in frutas"
+          :key="fruta + index"
+          :nomeFruta="fruta">
+        </item-produto>
+      </ul>`
+    }
+
+
+    const vm = new Vue ({ 
+      el: "#app",
+      data: {
+        lista: ["Banana", "Laranja", "Uva"]
+      },
+      components: {
+        ListaProdutos
+       
+      }
+    })
+
+  </script>
+
+</body>
+</html>
